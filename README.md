@@ -1,4 +1,4 @@
-# uncaught [![Build Status](https://travis-ci.org/aleksandr-oleynikov/uncaught.svg?branch=master)](https://travis-ci.org/aleksandr-oleynikov/uncaught)
+# uncaught [![Build Status](https://travis-ci.org/aleksandr-oleynikov/uncaught.svg?branch=master)](https://travis-ci.org/aleksandr-oleynikov/uncaught) [![npm version](https://badge.fury.io/js/uncaught.svg)](https://badge.fury.io/js/uncaught)
 
 `uncaught` is the module, which allows you to handle all uncaught errors and promises rejections through only one interface.
 
