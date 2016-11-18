@@ -48,7 +48,7 @@ Flushes the module: removes all listeners functions and stops handling of uncaug
 
 #### For browser mode
 
-```
+```js
 var uncaught = require('uncaught');
 
 uncaught.listen();
@@ -65,7 +65,7 @@ function uncaughtErrorHandler(error, event) {
 
 #### For Node.js mode
 
-```
+```js
 var uncaught = require('uncaught');
 
 uncaught.listen();
