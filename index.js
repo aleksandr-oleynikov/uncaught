@@ -7,7 +7,7 @@
 /**
  * Defines execution environment
  */
-const isBrowser = new Function("try { return this === window; } catch(e) { return false; }");
+const isBrowser = typeof window !== 'undefined';
 
 /**
  * Listeners list, which are registered for uncaught errors and promises rejections
@@ -35,7 +35,7 @@ module.exports = {
         }
 
         if (!handlersAreRegistered) {
-            if (isBrowser()) {
+            if (isBrowser) {
                 // Listen to uncaught errors
                 window.addEventListener('error', browserErrorHandler);
                 // Listen to uncaught promises rejections
@@ -59,7 +59,7 @@ module.exports = {
             return;
         }
 
-        if (isBrowser()) {
+        if (isBrowser) {
             window.removeEventListener('error', browserErrorHandler);
             window.removeEventListener('unhandledrejection', browserRejectionHandler);
 
