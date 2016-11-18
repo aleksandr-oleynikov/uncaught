@@ -2,6 +2,13 @@
   "name": "uncaught",
   "version": "0.0.3",
   "description": "Module for handle uncaught errors and promises rejections",
+  "keywords": [
+    "uncaught",
+    "exception",
+    "rejection",
+    "unhandled",
+    "error"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/aleksandr-oleynikov/uncaught"
