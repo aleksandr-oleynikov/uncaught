@@ -1,6 +1,6 @@
 /**
  * @overview
- * Node.JS script for test child process,
+ * Node.js script for test child process,
  * which is listening throw errors requests from main frame and
  * sends back uncaught module results.
  */

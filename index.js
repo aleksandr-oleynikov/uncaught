@@ -126,7 +126,7 @@ function browserRejectionHandler(event) {
 }
 
 /**
- * Handler for Node.JS uncaught errors
+ * Handler for Node.js uncaught errors
  * @param {Object} error
  */
 function nodeErrorHandler(error) {
@@ -136,7 +136,7 @@ function nodeErrorHandler(error) {
 }
 
 /**
- * Handler for Node.JS uncaught promises rejections
+ * Handler for Node.js uncaught promises rejections
  * @param {Object} reason
  */
 function nodeRejectionHandler(reason) {

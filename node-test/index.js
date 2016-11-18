@@ -1,5 +1,5 @@
 /**
- * @overview Node.JS tests suites
+ * @overview Node.js tests suites
  */
 
 'use strict';

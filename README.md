@@ -5,7 +5,7 @@
 # How it works
 
 `uncaught` adds its own handlers for window [error](https://developer.mozilla.org/en-US/docs/Web/Events/error) and [unhandledrejection](https://developer.mozilla.org/en-US/docs/Web/Events/unhandledrejection) events if it is working in browser.
-Or for similar Node.JS [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process_event_unhandledrejection) events.
+Or for similar Node.js [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process_event_unhandledrejection) events.
 
 After one of these events fires, the module transfers `error` (and `event` for browser mode) object(s) to all registered listeners functions.
  
@@ -63,7 +63,7 @@ function uncaughtErrorHandler(error, event) {
 }
 ```
 
-#### For Node.JS mode
+#### For Node.js mode
 
 ```
 var uncaught = require('uncaught');
