@@ -1,6 +1,6 @@
 {
   "name": "uncaught",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Module for handle uncaught errors and promises rejections",
   "repository": {
     "type": "git",
