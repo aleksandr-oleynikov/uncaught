@@ -3,3 +3,4 @@ node_js:
   - "6"
   - "node"
   - "iojs"
+script: npm run travis
