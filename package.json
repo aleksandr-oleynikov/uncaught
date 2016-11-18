@@ -1,0 +1,45 @@
+{
+  "name": "uncaught",
+  "version": "0.0.1",
+  "description": "Module for handle uncaught errors and promises rejections",
+  "main": "lib/index.js",
+  "scripts": {
+    "upload": "npm run lint && npm run build && npm run node-test && npm run browser-test && npm run publish-to-registry",
+    "travis": "npm run lint && npm run build && npm run node-test",
+    "lint": "eslint ./",
+    "build": "npm run clean && npm run make-lib-dir && npm run babel",
+    "clean": "rm -r -f lib",
+    "make-lib-dir": "mkdir lib",
+    "babel": "babel index.js --out-file lib/index.js",
+    "browser-test": "npm run build-browser-test && npm run run-browser-test",
+    "build-browser-test": "npm run clean-browser-test && npm run webpack-browser-test",
+    "clean-browser-test": "rm -r -f browser-test/lib",
+    "webpack-browser-test": "webpack lib/index.js browser-test/lib/uncaught.js --output-library=uncaught",
+    "run-browser-test": "karma start karma.conf.js",
+    "node-test": "mocha --require node-test/setup.js node-test/index.js",
+    "publish-to-registry": "npm publish"
+  },
+  "author": {
+    "name": "Aleksandr Oleynikov",
+    "email": "al88@mail.ru"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.10.1",
+    "karma": "^1.3.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha": "^1.3.0",
+    "mocha": "^3.1.2",
+    "webpack": "^1.13.3"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run build && npm run nano-test && npm run browser-test"
+    }
+  }
+}
