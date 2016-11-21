@@ -1,4 +1,3 @@
 node_modules/**
-browser-test/vendor/**
-browser-test/lib/**
+lib/**
 karma.conf.js

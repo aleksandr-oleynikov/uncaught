@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       { pattern: 'browser-test/frame-for-uncaught/index.html', included: false },
-      { pattern: 'browser-test/lib/uncaught.js', included: false },
+      { pattern: 'lib/index.js', included: false },
       { pattern: 'browser-test/frame-for-uncaught/index.js', included: false },
       'browser-test/index.js'
     ],
@@ -69,4 +69,4 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity
   })
-}
+};
