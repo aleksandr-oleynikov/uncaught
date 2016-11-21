@@ -25,7 +25,7 @@ $ npm install --save uncaught
 ```js
 var uncaught = require('uncaught');
 
-uncaught.listen();
+uncaught.start();
 uncaught.addListener(uncaughtErrorHandler);
 
 function uncaughtErrorHandler(error, event) {
@@ -42,7 +42,7 @@ function uncaughtErrorHandler(error, event) {
 ```js
 var uncaught = require('uncaught');
 
-uncaught.listen();
+uncaught.start();
 uncaught.addListener(uncaughtErrorHandler);
 
 function uncaughtErrorHandler(error) {
@@ -54,10 +54,10 @@ function uncaughtErrorHandler(error) {
 
 List of methods for module management:
 
-- `listen`
+- `start`
 Starts handling of uncaught errors and promise rejection.
 
-- `stopListen`
+- `stop`
 Stops handling.
 
 - `addListener`
