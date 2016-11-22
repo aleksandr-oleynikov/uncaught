@@ -3,11 +3,14 @@
 `uncaught` is the module, which allows you to handle all uncaught errors and promise rejections through only one interface.
 
 # How it works
-// todo: split on two sections Node / Browser  
-`uncaught` listens for window [error](https://developer.mozilla.org/en-US/docs/Web/Events/error) and [unhandledrejection](https://developer.mozilla.org/en-US/docs/Web/Events/unhandledrejection) events if it is working in browser.
-Or for similar Node.js [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process_event_unhandledrejection) events.
 
-After one of these events fires, the module transfers `error` (and `event` for browser mode) object(s) to all registered listeners functions.
+`uncaught` listens for global object errors and unhandled rejections events:
+
+- For browser these are [error](https://developer.mozilla.org/en-US/docs/Web/Events/error) and [unhandledrejection](https://developer.mozilla.org/en-US/docs/Web/Events/unhandledrejection).
+
+- And for Node.js these are [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception) and [unhandledRejection](https://nodejs.org/api/process.html#process_event_unhandledrejection).
+
+After one of these events fires, the module transfers `error` (and also `event` for browser mode) object(s) to all registered listeners functions.
  
 So be sure, that above events are supported by your environment.
  
@@ -17,10 +20,31 @@ So be sure, that above events are supported by your environment.
 $ npm install --save uncaught
 ```
 
-# Usage
+# Usage examples
 
-#### Browser
-// todo: add script tag example
+#### Browser environment, injected script
+
+```html
+<body>
+    ...
+    <script src="path_to_your_project_dir/node_modules/uncaught/lib/index.js"></script>
+    <script>
+        uncaught.start();
+        uncaught.addListener(uncaughtErrorHandler);
+
+        function uncaughtErrorHandler(error, event) {
+            if (event instanceof ErrorEvent) {
+                console.log('MY Uncaught error: ', error);
+            } else {
+                console.log('MY Uncaught promise rejection: ', error);
+            }
+        }
+    </script>
+    ...
+</body>
+```
+
+#### Browser environment, module for webpack bundling
 
 ```js
 var uncaught = require('uncaught');
@@ -37,7 +61,7 @@ function uncaughtErrorHandler(error, event) {
 }
 ```
 
-#### Node.js
+#### Node.js environment
 
 ```js
 var uncaught = require('uncaught');
