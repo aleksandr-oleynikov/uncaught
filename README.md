@@ -101,6 +101,26 @@ Removes all listeners functions.
 - `flush`
 Flushes the module: removes all listeners functions and stops handling of uncaught errors and promise rejections.
 
+# Used events support
+
+#### Global error
+
+- Google Chrome 30+
+- Edge (All versions)
+- Internet Explorer 11
+- Firefox 33+
+- Opera 41+
+- Safari 10+
+- Yandex.Browser 16+
+- Android 4.4+
+- iOS 10.0+
+
+#### Global unhandled rejection
+
+- Google Chrome 49+
+- Opera 41+
+- Yandex.Browser 16+
+
 # License
 
 MIT © https://github.com/aleksandr-oleynikov
