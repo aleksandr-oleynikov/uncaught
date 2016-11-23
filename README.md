@@ -45,7 +45,7 @@ $ npm install --save uncaught
 
 # Usage examples
 
-#### Browser environment, injected script
+#### Browser
 
 ```html
 <body>
@@ -61,7 +61,18 @@ $ npm install --save uncaught
 </body>
 ```
 
-#### Node.js environment and also browser environment, module for webpack bundling
+#### Browser + webpack
+ 
+```js
+var uncaught = require('uncaught');
+
+uncaught.start();
+uncaught.addListener(function (error) {
+    console.log('Uncaught error or rejection: ', error.message);
+});
+```
+
+#### Node.js
 
 ```js
 var uncaught = require('uncaught');
