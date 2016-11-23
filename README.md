@@ -12,8 +12,31 @@
 
 After one of these events fires, the module transfers `error` (and also `event` for browser mode) object(s) to all registered listeners functions.
  
-So be sure, that above events [are supported](https://github.com/aleksandr-oleynikov/uncaught#used-events-support) by your environment.
- 
+# Browser support
+
+#### Global error
+
+- Google Chrome 30+
+- Edge (All versions)
+- Internet Explorer 11
+- Firefox 33+
+- Opera 41+
+- Safari 10+
+- Yandex.Browser 16+
+- Android 4.4+
+- iOS 10.0+
+
+#### Global unhandled rejection
+
+- Google Chrome 49+
+- Opera 41+
+- Yandex.Browser 16+
+
+# Node.js support
+
+- Event `uncaughtException` added in v0.1.18.
+- Event `unhandledRejection` added in v1.4.1.
+
 # Install
 
 ```
@@ -30,48 +53,23 @@ $ npm install --save uncaught
     <script src="path_to_your_project_dir/node_modules/uncaught/lib/index.js"></script>
     <script>
         uncaught.start();
-        uncaught.addListener(uncaughtErrorHandler);
-
-        function uncaughtErrorHandler(error, event) {
-            if (event instanceof ErrorEvent) {
-                console.log('MY Uncaught error: ', error);
-            } else {
-                console.log('MY Uncaught promise rejection: ', error);
-            }
-        }
+        uncaught.addListener(function (error) {
+            console.log('Uncaught error or rejection: ', error.message);
+        });
     </script>
     ...
 </body>
 ```
 
-#### Browser environment, module for webpack bundling
+#### Node.js environment and also browser environment, module for webpack bundling
 
 ```js
 var uncaught = require('uncaught');
 
 uncaught.start();
-uncaught.addListener(uncaughtErrorHandler);
-
-function uncaughtErrorHandler(error, event) {
-    if (event instanceof ErrorEvent) {
-        console.log('Uncaught error: ', error);
-    } else {
-        console.log('Uncaught promise rejection: ', error);
-    }
-}
-```
-
-#### Node.js environment
-
-```js
-var uncaught = require('uncaught');
-
-uncaught.start();
-uncaught.addListener(uncaughtErrorHandler);
-
-function uncaughtErrorHandler(error) {
-    console.log('Uncaught error: ', error);
-}
+uncaught.addListener(function (error) {
+    console.log('Uncaught error or rejection: ', error.message);
+});
 ```
 
 # API
@@ -100,26 +98,6 @@ Removes all listeners functions.
 
 - `flush`
 Flushes the module: removes all listeners functions and stops handling of uncaught errors and promise rejections.
-
-# Used events support
-
-#### Global error
-
-- Google Chrome 30+
-- Edge (All versions)
-- Internet Explorer 11
-- Firefox 33+
-- Opera 41+
-- Safari 10+
-- Yandex.Browser 16+
-- Android 4.4+
-- iOS 10.0+
-
-#### Global unhandled rejection
-
-- Google Chrome 49+
-- Opera 41+
-- Yandex.Browser 16+
 
 # License
 
