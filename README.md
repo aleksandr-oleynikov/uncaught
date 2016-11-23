@@ -12,7 +12,7 @@
 
 After one of these events fires, the module transfers `error` (and also `event` for browser mode) object(s) to all registered listeners functions.
  
-So be sure, that above events are supported by your environment.
+So be sure, that above events [are supported](https://github.com/aleksandr-oleynikov/uncaught#used-events-support) by your environment.
  
 # Install
 
