@@ -1,6 +1,6 @@
 # uncaught [![Build Status](https://travis-ci.org/aleksandr-oleynikov/uncaught.svg?branch=master)](https://travis-ci.org/aleksandr-oleynikov/uncaught) [![npm version](https://badge.fury.io/js/uncaught.svg)](https://badge.fury.io/js/uncaught)
 
-`uncaught` is the module, which allows you to handle all uncaught errors and promise rejections through only one interface.
+`uncaught` is the module, which allows you to handle all uncaught errors and promise rejections through only one listener.
 
 # How it works
 
